@@ -1,6 +1,17 @@
 import React from "react";
-import CardVideo from "./Componentes/CardVideo";
+import CardVideo from "./Componentes/CardVideo/CardVideo.js";
 import "./styles.css";
+import {createGlobalStyle} from 'styled-components';
+import { HeaderStyled, TelaInteira, MainStyled, MenuVertical, BotoesMenu, PainelVideos, Footer, H4 
+ } from "./styled.js";
+
+const GlobalStyle = createGlobalStyle`
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+`
 
 export default function App() {
   const card1 = {
@@ -11,37 +22,37 @@ export default function App() {
 
   return (
     <div>
-      <div className="tela-inteira">
-        <header>
+      <TelaInteira>
+        <HeaderStyled>
           <h1>LabeTube</h1>
           <input type="text" placeholder="Busca" id="campoDeBusca" />
-        </header>
+        </HeaderStyled>
 
-        <main>
-          <nav className="menu-vertical">
+        <MainStyled>
+          <MenuVertical>
             <ul>
-              <li className="botoes-meunu-vertical">Início</li>
-              <li className="botoes-meunu-vertical">Em alta</li>
-              <li className="botoes-meunu-vertical">Inscrições</li>
+              <BotoesMenu>Início</BotoesMenu>
+              <BotoesMenu>Em alta</BotoesMenu>
+              <BotoesMenu>Inscrições</BotoesMenu>
               <hr />
-              <li className="botoes-meunu-vertical">Originais</li>
-              <li className="botoes-meunu-vertical">Histórico</li>
+              <BotoesMenu>Originais</BotoesMenu>
+              <BotoesMenu>Histórico</BotoesMenu>
             </ul>
-          </nav>
+          </MenuVertical>
 
-          <section className="painel-de-videos">
+          <PainelVideos>
             <CardVideo
               image1={card1.imagemDoVideo}
               titulo={card1.titulo}
               textoAlternativo={card1.textoAlternativo}
             />
-          </section>
-        </main>
+          </PainelVideos>
+        </MainStyled>
 
-        <footer>
-          <h4>Oi! Eu moro no footer!</h4>
-        </footer>
-      </div>
+        <Footer>
+          <H4>Oi! Eu moro no footer!</H4>
+        </Footer>
+      </TelaInteira>
     </div>
   );
 }
